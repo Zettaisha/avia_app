@@ -9,7 +9,9 @@ class MusicTicketModel extends MusicTicketEnitity {
       id: map['id'] ?? 0,
       title: map['title'] ?? '',
       town: map['town'] ?? '',
-      price: map['price'] ?? 0,
+      price: (map['price'] != null && map['price']['value'] != null)
+          ? map['price']['value']
+          : 0,
     );
   }
 }
