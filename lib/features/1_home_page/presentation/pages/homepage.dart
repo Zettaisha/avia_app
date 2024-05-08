@@ -1,3 +1,4 @@
+import 'package:avia_app/core/constants/constants.dart';
 import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc.dart';
 import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_state.dart';
 import 'package:flutter/cupertino.dart';
@@ -30,7 +31,7 @@ class Homepage extends StatelessWidget {
               return ListTile(
                 title: Text(
                     '${musicTicket.title} в ${musicTicket.town}, за ${musicTicket.price}',
-                    style: const TextStyle(fontFamily: 'SF_Pro_Display')),
+                    style: const TextStyle(fontFamily: fontSfProDisplay)),
               );
             },
           );
