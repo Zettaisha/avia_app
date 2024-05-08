@@ -26,8 +26,10 @@ class Homepage extends StatelessWidget {
           return ListView.builder(
             itemCount: state.musicTickets!.length,
             itemBuilder: (context, index) {
+              var musicTicket = state.musicTickets![index];
               return ListTile(
-                title: Text('$index'),
+                title: Text(
+                    '${musicTicket.title} в ${musicTicket.town}, за ${musicTicket.price}'),
               );
             },
           );
