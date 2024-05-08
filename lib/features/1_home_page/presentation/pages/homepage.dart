@@ -29,7 +29,8 @@ class Homepage extends StatelessWidget {
               var musicTicket = state.musicTickets![index];
               return ListTile(
                 title: Text(
-                    '${musicTicket.title} в ${musicTicket.town}, за ${musicTicket.price}'),
+                    '${musicTicket.title} в ${musicTicket.town}, за ${musicTicket.price}',
+                    style: const TextStyle(fontFamily: 'SF_Pro_Display')),
               );
             },
           );
