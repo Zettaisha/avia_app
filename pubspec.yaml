@@ -66,6 +66,11 @@ flutter:
     - lib/assets/images/icons/plane_bnb_icon.png
     - lib/assets/images/icons/profile_bnb_icon.png
     - lib/assets/images/icons/subscription_bnb_icon.png
+    - lib/assets/images/icons/search_icon.png
+    - lib/assets/images/music_ticket_1.jpg
+    - lib/assets/images/music_ticket_2.jpg
+    - lib/assets/images/music_ticket_3.jpg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

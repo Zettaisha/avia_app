@@ -10,4 +10,6 @@ const String bnbProfileImagePath =
 const String bnbSubscriptionImagePath =
     'lib/assets/images/icons/subscription_bnb_icon.png';
 
+const String searchIconImagePath = 'lib/assets/images/icons/search_icon.png';
+
 const String fontSfProDisplay = 'SF_Pro_Display';
