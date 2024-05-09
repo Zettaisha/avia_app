@@ -99,7 +99,7 @@ class Homepage extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 0,
                                     ),
                                     SizedBox(
