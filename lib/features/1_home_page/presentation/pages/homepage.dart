@@ -5,9 +5,48 @@ import 'package:avia_app/core/constants/constants.dart';
 import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc.dart';
 import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_state.dart';
 import 'package:avia_app/features/1_home_page/presentation/widgets/music_ticket_card.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   const Homepage({super.key});
+
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  final TextEditingController _textEditingControllerFrom =
+      TextEditingController();
+  final TextEditingController _textEditingControllerWhere =
+      TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedValue();
+  }
+
+  void _loadSavedValue() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? savedValue = prefs.getString('lastInput');
+    if (savedValue != null) {
+      setState(() {
+        _textEditingControllerFrom.text = savedValue;
+      });
+    }
+  }
+
+  void _saveInputValue(String value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('lastInput', value);
+  }
+
+  @override
+  void dispose() {
+    _textEditingControllerFrom.dispose();
+    _textEditingControllerWhere.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,27 +128,72 @@ class Homepage extends StatelessWidget {
                                     SizedBox(
                                       height: 35,
                                       child: TextField(
-                                        decoration: InputDecoration(
-                                          hintText: 'Откуда - Москва',
-                                          hintStyle: TextStyle(
+                                        controller: _textEditingControllerFrom,
+                                        onChanged: (value) {
+                                          String filteredValue =
+                                              value.replaceAll(
+                                                  RegExp(r'[^а-яА-Я ]'), '');
+                                          if (value != filteredValue) {
+                                            _textEditingControllerFrom.value =
+                                                TextEditingValue(
+                                              text: filteredValue,
+                                              selection:
+                                                  TextSelection.collapsed(
+                                                      offset:
+                                                          filteredValue.length),
+                                            );
+                                          }
+                                          _saveInputValue(filteredValue);
+                                        },
+                                        style: TextStyle(
                                             color: AppColors.white,
                                             fontSize: 17,
                                             fontWeight: FontWeight.bold,
-                                          ),
+                                            fontFamily: fontSfProDisplay),
+                                        decoration: InputDecoration(
+                                          focusedBorder:
+                                              const UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                      color: Colors.white)),
+                                          hintText: 'Откуда - Москва',
+                                          hintStyle: TextStyle(
+                                              color: AppColors.white,
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: fontSfProDisplay),
                                         ),
                                       ),
-                                    ),
-                                    const SizedBox(
-                                      height: 0,
                                     ),
                                     SizedBox(
                                       height: 40,
                                       child: TextField(
+                                        controller: _textEditingControllerWhere,
+                                        onChanged: (value) {
+                                          String filteredValue =
+                                              value.replaceAll(
+                                                  RegExp(r'[^а-яА-Я ]'), '');
+                                          if (value != filteredValue) {
+                                            _textEditingControllerWhere.value =
+                                                TextEditingValue(
+                                              text: filteredValue,
+                                              selection:
+                                                  TextSelection.collapsed(
+                                                      offset:
+                                                          filteredValue.length),
+                                            );
+                                          }
+                                        },
+                                        style: TextStyle(
+                                            color: AppColors.white,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: fontSfProDisplay),
                                         decoration: InputDecoration(
                                           hintText: 'Куда - Турция',
                                           hintStyle: TextStyle(
                                             color: AppColors.white,
                                             fontSize: 17,
+                                            fontFamily: fontSfProDisplay,
                                             fontWeight: FontWeight.bold,
                                           ),
                                           border: InputBorder.none,
