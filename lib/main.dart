@@ -1,3 +1,4 @@
+import 'package:avia_app/config/themes/colors.dart';
 import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc.dart';
 import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_event.dart';
 import 'package:avia_app/features/1_home_page/presentation/pages/bnb_stack.dart';
@@ -17,9 +18,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<MusicTicketsBloc>(
       create: (context) => sl()..add(const GetMusicTickets()),
-      child: const MaterialApp(
+      child: MaterialApp(
+        theme: theme(),
         debugShowCheckedModeBanner: false,
-        home: BnbStack(),
+        home: const BnbStack(),
       ),
     );
   }

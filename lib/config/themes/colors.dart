@@ -18,3 +18,7 @@ class AppColors {
   static Color red = HexColor.fromHex('#FF0000');
   static Color orange = HexColor.fromHex('#F36E36');
 }
+
+ThemeData theme() {
+  return ThemeData();
+}
