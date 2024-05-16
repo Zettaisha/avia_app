@@ -224,11 +224,14 @@ class _HomepageState extends State<Homepage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Музыкально отлететь',
-                            style: TextStyle(
-                              color: AppColors.white,
-                              fontSize: 25,
+                          Padding(
+                            padding: const EdgeInsets.only(left: 23),
+                            child: Text(
+                              'Музыкально отлететь',
+                              style: TextStyle(
+                                color: AppColors.white,
+                                fontSize: 25,
+                              ),
                             ),
                           ),
                           const SizedBox(height: 30),

@@ -32,8 +32,8 @@ class _BnbStackState extends State<BnbStack> {
         backgroundColor: AppColors.blackColor,
         selectedItemColor: AppColors.darkBlue,
         unselectedItemColor: Colors.grey,
-        unselectedFontSize: 15,
-        selectedFontSize: 18,
+        unselectedFontSize: 10,
+        selectedFontSize: 13,
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
