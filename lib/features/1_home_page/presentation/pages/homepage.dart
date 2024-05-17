@@ -69,7 +69,7 @@ class _HomepageState extends State<Homepage> {
           if (state is MusicTicketsDone) {
             return SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.only(top: 35, left: 0, right: 0),
+                padding: const EdgeInsets.only(top: 50, left: 0, right: 0),
                 child: Column(
                   children: [
                     Center(
@@ -218,7 +218,6 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 30),
                     Padding(
                       padding: const EdgeInsets.only(top: 30, left: 10),
                       child: Column(
