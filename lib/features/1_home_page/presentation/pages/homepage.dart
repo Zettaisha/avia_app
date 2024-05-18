@@ -157,7 +157,7 @@ class _HomepageState extends State<Homepage> {
                                                       color: Colors.white)),
                                           hintText: 'Откуда - Москва',
                                           hintStyle: TextStyle(
-                                              color: AppColors.white,
+                                              color: AppColors.grey6,
                                               fontSize: 17,
                                               fontWeight: FontWeight.bold,
                                               fontFamily: fontSfProDisplay),
@@ -191,7 +191,7 @@ class _HomepageState extends State<Homepage> {
                                         decoration: InputDecoration(
                                           hintText: 'Куда - Турция',
                                           hintStyle: TextStyle(
-                                            color: AppColors.white,
+                                            color: AppColors.grey6,
                                             fontSize: 17,
                                             fontFamily: fontSfProDisplay,
                                             fontWeight: FontWeight.bold,

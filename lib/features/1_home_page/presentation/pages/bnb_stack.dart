@@ -20,6 +20,7 @@ class _BnbStackState extends State<BnbStack> {
     const BnbStubPage(title: 'Подписки'),
     const BnbStubPage(title: 'Профиль'),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,35 +28,47 @@ class _BnbStackState extends State<BnbStack> {
         index: _currentIndex,
         children: _pages,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: AppColors.blackColor,
-        selectedItemColor: AppColors.darkBlue,
-        unselectedItemColor: Colors.grey,
-        unselectedFontSize: 10,
-        selectedFontSize: 13,
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(bnbPlaneImagePath)),
-              label: 'Авиабилеты'),
-          BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(bnbHotelsImagePath)), label: 'Отели'),
-          BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(bnbLocationImagePath)),
-              label: 'Короче'),
-          BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(bnbSubscriptionImagePath)),
-              label: 'Подписки'),
-          BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(bnbProfileImagePath)),
-              label: 'Профиль'),
-        ],
+      bottomNavigationBar: Container(
+        color: AppColors.blackColor,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: AppColors.blackColor,
+            selectedItemColor: AppColors.darkBlue,
+            unselectedItemColor: Colors.grey,
+            unselectedFontSize: 10,
+            selectedFontSize: 13,
+            currentIndex: _currentIndex,
+            onTap: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+            items: const [
+              BottomNavigationBarItem(
+                icon: ImageIcon(AssetImage(bnbPlaneImagePath)),
+                label: 'Авиабилеты',
+              ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(AssetImage(bnbHotelsImagePath)),
+                label: 'Отели',
+              ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(AssetImage(bnbLocationImagePath)),
+                label: 'Короче',
+              ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(AssetImage(bnbSubscriptionImagePath)),
+                label: 'Подписки',
+              ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(AssetImage(bnbProfileImagePath)),
+                label: 'Профиль',
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
