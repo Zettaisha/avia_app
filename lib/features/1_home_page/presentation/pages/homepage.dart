@@ -164,51 +164,17 @@ class _HomepageState extends State<Homepage> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
-                                      height: 40,
-                                      child: TextField(
-                                        controller: _textEditingControllerWhere,
-                                        onChanged: (value) {
-                                          String filteredValue =
-                                              value.replaceAll(
-                                                  RegExp(r'[^а-яА-Я ]'), '');
-                                          if (value != filteredValue) {
-                                            _textEditingControllerWhere.value =
-                                                TextEditingValue(
-                                              text: filteredValue,
-                                              selection:
-                                                  TextSelection.collapsed(
-                                                      offset:
-                                                          filteredValue.length),
-                                            );
-                                          }
-                                        },
+                                    const SizedBox(height: 6),
+                                    GestureDetector(
+                                      child: Text(
+                                        'Куда - Турция',
                                         style: TextStyle(
-                                            color: AppColors.white,
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: fontSfProDisplay),
-                                        decoration: InputDecoration(
-                                          hintText: 'Куда - Турция',
-                                          hintStyle: TextStyle(
                                             color: AppColors.grey6,
-                                            fontSize: 17,
                                             fontFamily: fontSfProDisplay,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          border: InputBorder.none,
-                                          enabledBorder:
-                                              const UnderlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: Colors.transparent),
-                                          ),
-                                          focusedBorder:
-                                              const UnderlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: Colors.transparent),
-                                          ),
-                                        ),
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w600),
                                       ),
+                                      onTap: () {},
                                     ),
                                   ],
                                 ),
