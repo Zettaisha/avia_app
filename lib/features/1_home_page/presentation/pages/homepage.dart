@@ -1,3 +1,4 @@
+import 'package:avia_app/features/1_home_page/presentation/widgets/bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:avia_app/config/themes/colors.dart';
@@ -16,8 +17,6 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   final TextEditingController _textEditingControllerFrom =
-      TextEditingController();
-  final TextEditingController _textEditingControllerWhere =
       TextEditingController();
 
   @override
@@ -44,7 +43,6 @@ class _HomepageState extends State<Homepage> {
   @override
   void dispose() {
     _textEditingControllerFrom.dispose();
-    _textEditingControllerWhere.dispose();
     super.dispose();
   }
 
@@ -174,7 +172,14 @@ class _HomepageState extends State<Homepage> {
                                             fontSize: 17,
                                             fontWeight: FontWeight.w600),
                                       ),
-                                      onTap: () {},
+                                      onTap: () {
+                                        showModalBottomSheet<void>(
+                                            isScrollControlled: true,
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              return const HomeBottomSheet();
+                                            });
+                                      },
                                     ),
                                   ],
                                 ),

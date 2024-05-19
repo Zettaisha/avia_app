@@ -12,4 +12,11 @@ const String bnbSubscriptionImagePath =
 
 const String searchIconImagePath = 'lib/assets/images/icons/search_icon.png';
 
+const String planeIconImagePath = 'lib/assets/images/icons/plane_icon.png';
+const String calendarIconImagePath =
+    'lib/assets/images/icons/calendar_icon.png';
+const String fireIconImagePath = 'lib/assets/images/icons/fire_icon.png';
+const String globeIconImagePath = 'lib/assets/images/icons/globe_icon.png';
+const String routeIconImagePath = 'lib/assets/images/icons/route_icon.png';
+
 const String fontSfProDisplay = 'SF_Pro_Display';
