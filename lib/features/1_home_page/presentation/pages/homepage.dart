@@ -177,7 +177,10 @@ class _HomepageState extends State<Homepage> {
                                             isScrollControlled: true,
                                             context: context,
                                             builder: (BuildContext context) {
-                                              return const HomeBottomSheet();
+                                              return HomeBottomSheet(
+                                                  fromCity:
+                                                      _textEditingControllerFrom
+                                                          .text);
                                             });
                                       },
                                     ),

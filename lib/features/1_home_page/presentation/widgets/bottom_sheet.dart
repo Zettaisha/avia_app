@@ -3,7 +3,8 @@ import 'package:avia_app/core/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class HomeBottomSheet extends StatefulWidget {
-  const HomeBottomSheet({super.key});
+  const HomeBottomSheet({super.key, required this.fromCity});
+  final String fromCity;
 
   @override
   State<HomeBottomSheet> createState() => _HomeBottomSheetState();
@@ -60,9 +61,9 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
                           color: AppColors.grey6,
                         ),
                       ),
-                      const Text(
-                        'Москва',
-                        style: TextStyle(
+                      Text(
+                        widget.fromCity,
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 17,
                           fontWeight: FontWeight.w600,
@@ -166,31 +167,35 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 10),
-                        width: 48,
-                        height: 48,
-                        decoration: BoxDecoration(
-                            color: AppColors.blue,
-                            borderRadius: BorderRadius.circular(16)),
-                        child: const Center(
-                          child: ImageIcon(
-                            AssetImage(globeIconImagePath),
-                            color: Colors.white,
+                  child: GestureDetector(
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 10),
+                          width: 48,
+                          height: 48,
+                          decoration: BoxDecoration(
+                              color: AppColors.blue,
+                              borderRadius: BorderRadius.circular(16)),
+                          child: const Center(
+                            child: ImageIcon(
+                              AssetImage(globeIconImagePath),
+                              color: Colors.white,
+                            ),
                           ),
                         ),
-                      ),
-                      const Text(
-                        'Куда угодно',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontFamily: fontSfProDisplay,
-                            fontSize: 14,
-                            color: Colors.white),
-                      )
-                    ],
+                        const Text(
+                          'Куда угодно',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontFamily: fontSfProDisplay,
+                              fontSize: 14,
+                              color: Colors.white),
+                        )
+                      ],
+                    ),
+                    onTap: () =>
+                        _textEditingControllerWhere.text = 'Куда угодно',
                   ),
                 ),
                 Padding(
