@@ -114,7 +114,7 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
                               border: InputBorder.none,
                               enabledBorder: InputBorder.none,
                               focusedBorder: InputBorder.none,
-                              hintText: 'Откуда - Москва',
+                              hintText: 'Куда - Турция',
                               hintStyle: TextStyle(
                                 color: Colors.grey[600],
                                 fontSize: 17,
