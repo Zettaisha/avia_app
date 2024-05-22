@@ -259,6 +259,8 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
               ],
             ),
           ),
+          const SizedBox(height: 30),
+          // TODO: тут будут сочи и т.д + раскидать по виджетам, тут слишком много верстки
         ],
       ),
     );
