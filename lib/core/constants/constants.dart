@@ -19,4 +19,8 @@ const String fireIconImagePath = 'lib/assets/images/icons/fire_icon.png';
 const String globeIconImagePath = 'lib/assets/images/icons/globe_icon.png';
 const String routeIconImagePath = 'lib/assets/images/icons/route_icon.png';
 
+const String sochiImagePath = 'lib/assets/images/sochi_photo.png';
+const String phuketImagePath = 'lib/assets/images/phuket_photo.png';
+const String stambulImagePath = 'lib/assets/images/stambul_photo.png';
+
 const String fontSfProDisplay = 'SF_Pro_Display';

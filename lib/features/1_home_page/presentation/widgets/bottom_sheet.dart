@@ -260,7 +260,63 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
             ),
           ),
           const SizedBox(height: 30),
-          // TODO: тут будут сочи и т.д + раскидать по виджетам, тут слишком много верстки
+          Container(
+            padding: const EdgeInsets.all(20),
+            height: 216,
+            width: 350,
+            decoration: BoxDecoration(
+                color: Colors.grey[800],
+                borderRadius: BorderRadius.circular(14)),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: Image.asset(
+                          stambulImagePath,
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Стамбул',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: AppColors.white,
+                              fontFamily: fontSfProDisplay,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        const Text(
+                          'Популярное направление',
+                          style: TextStyle(
+                            fontFamily: fontSfProDisplay,
+                            fontSize: 14,
+                            color: Colors.grey,
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 4,
+                ),
+                Container(
+                  height: 1,
+                  width: 320,
+                  color: Colors.grey[700],
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );

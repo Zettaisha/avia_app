@@ -76,6 +76,9 @@ flutter:
     - lib/assets/images/music_ticket_1.jpg
     - lib/assets/images/music_ticket_2.jpg
     - lib/assets/images/music_ticket_3.jpg
+    - lib/assets/images/phuket_photo.png
+    - lib/assets/images/sochi_photo.png
+    - lib/assets/images/stambul_photo.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
