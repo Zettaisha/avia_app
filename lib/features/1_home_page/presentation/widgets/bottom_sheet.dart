@@ -1,5 +1,7 @@
 import 'package:avia_app/config/themes/colors.dart';
 import 'package:avia_app/core/constants/constants.dart';
+import 'package:avia_app/features/1_home_page/presentation/widgets/popular_destination.dart';
+import 'package:avia_app/features/1_home_page/presentation/widgets/stub_actions.dart';
 import 'package:flutter/material.dart';
 
 class HomeBottomSheet extends StatefulWidget {
@@ -152,34 +154,10 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 10),
-                        width: 48,
-                        height: 48,
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(16)),
-                        child: const Center(
-                          child: ImageIcon(
-                            AssetImage(routeIconImagePath),
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      const Text(
-                        'Сложный\n маршрут',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontFamily: fontSfProDisplay,
-                            fontSize: 14,
-                            color: Colors.white),
-                      )
-                    ],
-                  ),
+                const StubActions(
+                  imagePath: routeIconImagePath,
+                  text: 'Сложный\nмаршрут',
+                  backgroundColor: Colors.green,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -214,63 +192,15 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
                         _textEditingControllerWhere.text = 'Куда угодно',
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 10),
-                        width: 48,
-                        height: 48,
-                        decoration: BoxDecoration(
-                            color: AppColors.darkBlue,
-                            borderRadius: BorderRadius.circular(16)),
-                        child: const Center(
-                          child: ImageIcon(
-                            AssetImage(calendarIconImagePath),
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      const Text(
-                        'Выходные',
-                        textAlign: TextAlign.center, // Center the text
-                        style: TextStyle(
-                            fontFamily: fontSfProDisplay,
-                            fontSize: 14,
-                            color: Colors.white),
-                      )
-                    ],
-                  ),
+                StubActions(
+                  imagePath: calendarIconImagePath,
+                  text: 'Выходные',
+                  backgroundColor: AppColors.darkBlue,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 10),
-                        width: 48,
-                        height: 48,
-                        decoration: BoxDecoration(
-                            color: AppColors.red,
-                            borderRadius: BorderRadius.circular(16)),
-                        child: const Center(
-                          child: ImageIcon(
-                            AssetImage(fireIconImagePath),
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      const Text(
-                        'Горячие\n билеты',
-                        textAlign: TextAlign.center, // Center the text
-                        style: TextStyle(
-                            fontFamily: fontSfProDisplay,
-                            fontSize: 14,
-                            color: Colors.white),
-                      )
-                    ],
-                  ),
+                StubActions(
+                  imagePath: fireIconImagePath,
+                  text: 'Горячие\n билеты',
+                  backgroundColor: AppColors.red,
                 ),
               ],
             ),
@@ -285,43 +215,8 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
                 borderRadius: BorderRadius.circular(14)),
             child: Column(
               children: [
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Image.asset(
-                          stambulImagePath,
-                          width: 50,
-                          height: 50,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Стамбул',
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: AppColors.white,
-                              fontFamily: fontSfProDisplay,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        const Text(
-                          'Популярное направление',
-                          style: TextStyle(
-                            fontFamily: fontSfProDisplay,
-                            fontSize: 14,
-                            color: Colors.grey,
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
+                const PopularDestination(
+                    cityName: 'Стамбул', imagePath: stambulImagePath),
                 const SizedBox(
                   height: 7,
                 ),
@@ -333,43 +228,8 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
                 const SizedBox(
                   height: 15,
                 ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Image.asset(
-                          sochiImagePath,
-                          width: 50,
-                          height: 50,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Сочи',
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: AppColors.white,
-                              fontFamily: fontSfProDisplay,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        const Text(
-                          'Популярное направление',
-                          style: TextStyle(
-                            fontFamily: fontSfProDisplay,
-                            fontSize: 14,
-                            color: Colors.grey,
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
+                const PopularDestination(
+                    cityName: 'Сочи', imagePath: sochiImagePath),
                 const SizedBox(
                   height: 7,
                 ),
@@ -381,43 +241,8 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
                 const SizedBox(
                   height: 15,
                 ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Image.asset(
-                          phuketImagePath,
-                          width: 50,
-                          height: 50,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Пхукет',
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: AppColors.white,
-                              fontFamily: fontSfProDisplay,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        const Text(
-                          'Популярное направление',
-                          style: TextStyle(
-                            fontFamily: fontSfProDisplay,
-                            fontSize: 14,
-                            color: Colors.grey,
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
+                const PopularDestination(
+                    cityName: 'Пхукет', imagePath: phuketImagePath),
                 const SizedBox(
                   height: 7,
                 ),
