@@ -23,4 +23,7 @@ const String sochiImagePath = 'lib/assets/images/sochi_photo.png';
 const String phuketImagePath = 'lib/assets/images/phuket_photo.png';
 const String stambulImagePath = 'lib/assets/images/stambul_photo.png';
 
+const String clearMarkIconImagePath =
+    'lib/assets/images/icons/clear_mark_icon.png';
+
 const String fontSfProDisplay = 'SF_Pro_Display';

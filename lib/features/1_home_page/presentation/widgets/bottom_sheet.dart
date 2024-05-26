@@ -13,6 +13,7 @@ class HomeBottomSheet extends StatefulWidget {
 class _HomeBottomSheetState extends State<HomeBottomSheet> {
   final TextEditingController _textEditingControllerWhere =
       TextEditingController();
+  bool isClearIconVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +105,9 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
                                       offset: filteredValue.length),
                                 );
                               }
+                              value.isNotEmpty
+                                  ? setState(() => isClearIconVisible = true)
+                                  : setState(() => isClearIconVisible = false);
                             },
                             style: const TextStyle(
                               color: Colors.white,
@@ -111,16 +115,28 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
                               fontWeight: FontWeight.bold,
                             ),
                             decoration: InputDecoration(
-                              border: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              hintText: 'Куда - Турция',
-                              hintStyle: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 17,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+                                border: InputBorder.none,
+                                enabledBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                hintText: 'Куда - Турция',
+                                hintStyle: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                suffixIcon: isClearIconVisible
+                                    ? IconButton(
+                                        icon: const ImageIcon(
+                                          AssetImage(clearMarkIconImagePath),
+                                          color: Colors.white,
+                                        ),
+                                        onPressed: () {
+                                          _textEditingControllerWhere.clear();
+                                          setState(
+                                              () => isClearIconVisible = false);
+                                        },
+                                      )
+                                    : null),
                           ),
                         ),
                       ),
@@ -262,7 +278,7 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
           const SizedBox(height: 30),
           Container(
             padding: const EdgeInsets.all(20),
-            height: 216,
+            height: 245,
             width: 350,
             decoration: BoxDecoration(
                 color: Colors.grey[800],
@@ -307,7 +323,103 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
                   ],
                 ),
                 const SizedBox(
-                  height: 4,
+                  height: 7,
+                ),
+                Container(
+                  height: 1,
+                  width: 320,
+                  color: Colors.grey[700],
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: Image.asset(
+                          sochiImagePath,
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Сочи',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: AppColors.white,
+                              fontFamily: fontSfProDisplay,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        const Text(
+                          'Популярное направление',
+                          style: TextStyle(
+                            fontFamily: fontSfProDisplay,
+                            fontSize: 14,
+                            color: Colors.grey,
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 7,
+                ),
+                Container(
+                  height: 1,
+                  width: 320,
+                  color: Colors.grey[700],
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: Image.asset(
+                          phuketImagePath,
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Пхукет',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: AppColors.white,
+                              fontFamily: fontSfProDisplay,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        const Text(
+                          'Популярное направление',
+                          style: TextStyle(
+                            fontFamily: fontSfProDisplay,
+                            fontSize: 14,
+                            color: Colors.grey,
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 7,
                 ),
                 Container(
                   height: 1,

@@ -73,6 +73,7 @@ flutter:
     - lib/assets/images/icons/fire_icon.png
     - lib/assets/images/icons/globe_icon.png
     - lib/assets/images/icons/route_icon.png
+    - lib/assets/images/icons/clear_mark_icon.png
     - lib/assets/images/music_ticket_1.jpg
     - lib/assets/images/music_ticket_2.jpg
     - lib/assets/images/music_ticket_3.jpg
