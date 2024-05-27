@@ -162,35 +162,36 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: GestureDetector(
-                    child: Column(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.only(bottom: 10),
-                          width: 48,
-                          height: 48,
-                          decoration: BoxDecoration(
-                              color: AppColors.blue,
-                              borderRadius: BorderRadius.circular(16)),
-                          child: const Center(
-                            child: ImageIcon(
-                              AssetImage(globeIconImagePath),
-                              color: Colors.white,
+                      child: Column(
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.only(bottom: 10),
+                            width: 48,
+                            height: 48,
+                            decoration: BoxDecoration(
+                                color: AppColors.blue,
+                                borderRadius: BorderRadius.circular(16)),
+                            child: const Center(
+                              child: ImageIcon(
+                                AssetImage(globeIconImagePath),
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                        ),
-                        const Text(
-                          'Куда угодно',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontFamily: fontSfProDisplay,
-                              fontSize: 14,
-                              color: Colors.white),
-                        )
-                      ],
-                    ),
-                    onTap: () =>
-                        _textEditingControllerWhere.text = 'Куда угодно',
-                  ),
+                          const Text(
+                            'Куда угодно',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontFamily: fontSfProDisplay,
+                                fontSize: 14,
+                                color: Colors.white),
+                          )
+                        ],
+                      ),
+                      onTap: () {
+                        _textEditingControllerWhere.text = 'Куда угодно';
+                        setState(() => isClearIconVisible = true);
+                      }),
                 ),
                 StubActions(
                   imagePath: calendarIconImagePath,
@@ -215,8 +216,11 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
                 borderRadius: BorderRadius.circular(14)),
             child: Column(
               children: [
-                const PopularDestination(
-                    cityName: 'Стамбул', imagePath: stambulImagePath),
+                GestureDetector(
+                  child: const PopularDestination(
+                      cityName: 'Стамбул', imagePath: stambulImagePath),
+                  onTap: () => _textEditingControllerWhere.text = 'Стамбул',
+                ),
                 const SizedBox(
                   height: 7,
                 ),
@@ -228,8 +232,11 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
                 const SizedBox(
                   height: 15,
                 ),
-                const PopularDestination(
-                    cityName: 'Сочи', imagePath: sochiImagePath),
+                GestureDetector(
+                  child: const PopularDestination(
+                      cityName: 'Сочи', imagePath: sochiImagePath),
+                  onTap: () => _textEditingControllerWhere.text = 'Сочи',
+                ),
                 const SizedBox(
                   height: 7,
                 ),
@@ -241,8 +248,11 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
                 const SizedBox(
                   height: 15,
                 ),
-                const PopularDestination(
-                    cityName: 'Пхукет', imagePath: phuketImagePath),
+                GestureDetector(
+                  child: const PopularDestination(
+                      cityName: 'Пхукет', imagePath: phuketImagePath),
+                  onTap: () => _textEditingControllerWhere.text = 'Пхукет',
+                ),
                 const SizedBox(
                   height: 7,
                 ),
