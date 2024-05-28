@@ -21,7 +21,7 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey[900], // Use a color or your custom color
+        color: Colors.grey[900],
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(16),
           topRight: Radius.circular(16),
