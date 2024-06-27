@@ -128,9 +128,14 @@ class _HomepageState extends State<Homepage> {
                                       child: TextField(
                                         controller: _textEditingControllerFrom,
                                         onChanged: (value) {
+                                          // Удаление всех символов, кроме кириллицы и пробелов
                                           String filteredValue =
                                               value.replaceAll(
                                                   RegExp(r'[^а-яА-Я ]'), '');
+
+                                          // Удаление лишних пробелов в начале и конце строки
+                                          filteredValue = filteredValue.trim();
+
                                           if (value != filteredValue) {
                                             _textEditingControllerFrom.value =
                                                 TextEditingValue(
@@ -141,6 +146,7 @@ class _HomepageState extends State<Homepage> {
                                                           filteredValue.length),
                                             );
                                           }
+
                                           _saveInputValue(filteredValue);
                                         },
                                         style: TextStyle(
@@ -173,15 +179,21 @@ class _HomepageState extends State<Homepage> {
                                             fontWeight: FontWeight.w600),
                                       ),
                                       onTap: () {
-                                        showModalBottomSheet<void>(
-                                            isScrollControlled: true,
-                                            context: context,
-                                            builder: (BuildContext context) {
-                                              return HomeBottomSheet(
-                                                  fromCity:
-                                                      _textEditingControllerFrom
-                                                          .text);
-                                            });
+                                        if (_textEditingControllerFrom
+                                                .text.length >=
+                                            3) {
+                                          showModalBottomSheet<void>(
+                                              isScrollControlled: true,
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return HomeBottomSheet(
+                                                    fromCity:
+                                                        _textEditingControllerFrom
+                                                            .text);
+                                              });
+                                        } else {
+                                          null;
+                                        }
                                       },
                                     ),
                                   ],
