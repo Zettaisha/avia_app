@@ -53,7 +53,7 @@ class _SearchPageState extends State<SearchPage> {
                                 Row(
                                   children: [
                                     Text(
-                                      'widget.fromCity',
+                                      'fromCity',
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 17,
@@ -81,7 +81,7 @@ class _SearchPageState extends State<SearchPage> {
                                 Row(
                                   children: [
                                     Text(
-                                      'widget.toCity',
+                                      'toCity',
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 17,
@@ -146,12 +146,13 @@ class _SearchPageState extends State<SearchPage> {
                   children: [
                     const Row(
                       children: [
-                        Icon(
-                          Icons.notification_important,
+                        ImageIcon(
+                          AssetImage(
+                              'lib/assets/images/icons/notifications_icon.png'),
                           color: Colors.blue,
                           size: 30,
                         ),
-                        SizedBox(width: 5),
+                        SizedBox(width: 10),
                         Text(
                           'Подписка на цену',
                           style: TextStyle(color: Colors.white, fontSize: 16),
