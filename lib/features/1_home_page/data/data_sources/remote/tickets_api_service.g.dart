@@ -34,7 +34,7 @@ class _TicketsApiService implements TicketsApiService {
     )
             .compose(
               _dio.options,
-              '/8fc9c9f5-d9da-468e-9129-67bd2b63ff5e',
+              '/6b4bbc62-678e-457f-8c71-f4c4d4992525',
               queryParameters: queryParameters,
               data: _data,
             )
