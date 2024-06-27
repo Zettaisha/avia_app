@@ -2,6 +2,7 @@ import 'package:avia_app/config/themes/colors.dart';
 import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc.dart';
 import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_event.dart';
 import 'package:avia_app/features/1_home_page/presentation/pages/bnb_stack.dart';
+import 'package:avia_app/features/1_home_page/presentation/pages/search_page.dart';
 import 'package:avia_app/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: theme(),
         debugShowCheckedModeBanner: false,
-        home: const BnbStack(),
+        home: const SearchPage(),
       ),
     );
   }

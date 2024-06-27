@@ -1,18 +1,15 @@
 name: avia_app
 description: "A new Flutter project."
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
+  sdk: ">=3.2.3 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-
-
 
   cupertino_icons: ^1.0.2
   retrofit: ^4.1.0
@@ -28,7 +25,6 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   build_runner: ^2.4.9
   retrofit_generator: ^8.1.0
-
 
 flutter:
   uses-material-design: true
@@ -46,13 +42,14 @@ flutter:
     - lib/assets/images/icons/globe_icon.png
     - lib/assets/images/icons/route_icon.png
     - lib/assets/images/icons/clear_mark_icon.png
+    - lib/assets/images/icons/plus_icon.png
+    - lib/assets/images/icons/passengers_icon.png
     - lib/assets/images/music_ticket_1.jpg
     - lib/assets/images/music_ticket_2.jpg
     - lib/assets/images/music_ticket_3.jpg
     - lib/assets/images/phuket_photo.png
     - lib/assets/images/sochi_photo.png
     - lib/assets/images/stambul_photo.png
-
 
   fonts:
     - family: SF_Pro_Display
