@@ -30,26 +30,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - lib/assets/images/icons/hotels_bnb_icon.png
-    - lib/assets/images/icons/location_bnb_icon.png
-    - lib/assets/images/icons/plane_bnb_icon.png
-    - lib/assets/images/icons/profile_bnb_icon.png
-    - lib/assets/images/icons/subscription_bnb_icon.png
-    - lib/assets/images/icons/search_icon.png
-    - lib/assets/images/icons/plane_icon.png
-    - lib/assets/images/icons/calendar_icon.png
-    - lib/assets/images/icons/fire_icon.png
-    - lib/assets/images/icons/globe_icon.png
-    - lib/assets/images/icons/route_icon.png
-    - lib/assets/images/icons/clear_mark_icon.png
-    - lib/assets/images/icons/plus_icon.png
-    - lib/assets/images/icons/passengers_icon.png
-    - lib/assets/images/music_ticket_1.jpg
-    - lib/assets/images/music_ticket_2.jpg
-    - lib/assets/images/music_ticket_3.jpg
-    - lib/assets/images/phuket_photo.png
-    - lib/assets/images/sochi_photo.png
-    - lib/assets/images/stambul_photo.png
+    - lib/assets/images/icons/
+    - lib/assets/images/
 
   fonts:
     - family: SF_Pro_Display

@@ -159,7 +159,8 @@ class _SearchPageState extends State<SearchPage> {
                       ],
                     ),
                     Transform.scale(
-                      scale: 0.65,
+                      scaleX: 0.65,
+                      scaleY: 0.65,
                       child: CupertinoSwitch(
                           value: isChecked,
                           activeColor: Colors.blue,
