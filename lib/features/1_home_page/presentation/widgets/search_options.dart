@@ -11,6 +11,7 @@ class SearchOptions extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
+        height: 35,
         padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 15),
         decoration: BoxDecoration(
           color: Colors.grey[800],
