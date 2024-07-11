@@ -2,6 +2,8 @@ import 'package:avia_app/core/constants/constants.dart';
 import 'package:avia_app/features/1_home_page/presentation/widgets/search_options.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -13,16 +15,26 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   String toCity = 'toCity';
   String fromCity = 'fromCity';
+  String departureDate = '';
   bool isChecked = false;
-  final List<Widget> searchOptions = [
-    const SearchOptions(
-        text: 'Обратно',
-        imageIconPath: 'lib/assets/images/icons/plus_icon.png'),
-    const SearchOptions(text: '24 фев, сб'),
-    const SearchOptions(
-        text: '1, эконом',
-        imageIconPath: 'lib/assets/images/icons/passengers_icon.png')
-  ];
+
+  @override
+  void initState() {
+    super.initState();
+    initializeDateFormatting('ru', null).then((_) {
+      setState(() {
+        departureDate = getCurrentMonthAndDay();
+      });
+    });
+  }
+
+  String getCurrentMonthAndDay() {
+    var date = DateTime.now();
+    var formattedDate = DateFormat('d MMM, E', 'ru').format(date);
+    formattedDate = formattedDate.replaceAll('.', '');
+    return formattedDate;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,15 +131,15 @@ class _SearchPageState extends State<SearchPage> {
                 )),
           ),
           const SizedBox(height: 15),
-          const Padding(
-            padding: EdgeInsets.only(left: 24),
+          Padding(
+            padding: const EdgeInsets.only(left: 23),
             child: Row(
               children: [
-                SearchOptions(
+                const SearchOptions(
                     text: 'Обратно',
                     imageIconPath: 'lib/assets/images/icons/plus_icon.png'),
-                SearchOptions(text: '24 фев, сб'),
-                SearchOptions(
+                SearchOptions(text: departureDate),
+                const SearchOptions(
                     text: '1, эконом',
                     imageIconPath:
                         'lib/assets/images/icons/passengers_icon.png')
