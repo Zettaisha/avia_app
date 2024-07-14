@@ -25,7 +25,6 @@ class SearchOptions extends StatelessWidget {
                     AssetImage(imageIconPath!),
                     color: Colors.grey,
                   ),
-            const SizedBox(width: 5),
             Text(
               text,
               style: const TextStyle(

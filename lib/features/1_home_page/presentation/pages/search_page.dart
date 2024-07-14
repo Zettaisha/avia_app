@@ -16,6 +16,7 @@ class _SearchPageState extends State<SearchPage> {
   String toCity = 'toCity';
   String fromCity = 'fromCity';
   String departureDate = '';
+  String arrivalDate = '';
   bool isChecked = false;
 
   @override
@@ -33,6 +34,22 @@ class _SearchPageState extends State<SearchPage> {
     var formattedDate = DateFormat('d MMM, E', 'ru').format(date);
     formattedDate = formattedDate.replaceAll('.', '');
     return formattedDate;
+  }
+
+  Future<void> showBackDateCalendar(bool isDepartureDate) async {
+    DateTime? selectedDate = await showDatePicker(
+        context: context, firstDate: DateTime.now(), lastDate: DateTime(2025));
+    if (selectedDate != null) {
+      var formattedDate = DateFormat('d MMM, E', 'ru').format(selectedDate!);
+      formattedDate = formattedDate.replaceAll('.', '');
+      setState(() {
+        if (isDepartureDate) {
+          departureDate = formattedDate;
+        } else {
+          arrivalDate = formattedDate;
+        }
+      });
+    }
   }
 
   @override
@@ -132,13 +149,17 @@ class _SearchPageState extends State<SearchPage> {
           ),
           const SizedBox(height: 15),
           Padding(
-            padding: const EdgeInsets.only(left: 23),
+            padding: const EdgeInsets.only(left: 20),
             child: Row(
               children: [
-                const SearchOptions(
-                    text: 'Обратно',
-                    imageIconPath: 'lib/assets/images/icons/plus_icon.png'),
-                SearchOptions(text: departureDate),
+                InkWell(
+                    child: SearchOptions(
+                        text: arrivalDate,
+                        imageIconPath: 'lib/assets/images/icons/plus_icon.png'),
+                    onTap: () async => await showBackDateCalendar(false)),
+                InkWell(
+                    child: SearchOptions(text: departureDate),
+                    onTap: () async => await showBackDateCalendar(true)),
                 const SearchOptions(
                     text: '1, эконом',
                     imageIconPath:
