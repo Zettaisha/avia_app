@@ -40,7 +40,7 @@ class _SearchPageState extends State<SearchPage> {
     DateTime? selectedDate = await showDatePicker(
         context: context, firstDate: DateTime.now(), lastDate: DateTime(2025));
     if (selectedDate != null) {
-      var formattedDate = DateFormat('d MMM, E', 'ru').format(selectedDate!);
+      var formattedDate = DateFormat('d MMM, E', 'ru').format(selectedDate);
       formattedDate = formattedDate.replaceAll('.', '');
       setState(() {
         if (isDepartureDate) {
