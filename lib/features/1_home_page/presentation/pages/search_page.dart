@@ -16,7 +16,7 @@ class _SearchPageState extends State<SearchPage> {
   String toCity = 'toCity';
   String fromCity = 'fromCity';
   String departureDate = '';
-  String arrivalDate = '';
+  String arrivalDate = 'Обратно';
   bool isChecked = false;
 
   @override
