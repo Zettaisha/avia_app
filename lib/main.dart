@@ -1,6 +1,6 @@
 import 'package:avia_app/config/themes/colors.dart';
-import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc.dart';
-import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_event.dart';
+import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc/homepage_bloc.dart';
+import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc/homepage_event.dart';
 import 'package:avia_app/features/1_home_page/presentation/pages/bnb_stack.dart';
 import 'package:avia_app/features/1_home_page/presentation/pages/search_page.dart';
 import 'package:avia_app/injection_container.dart';

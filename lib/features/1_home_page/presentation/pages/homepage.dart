@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:avia_app/config/themes/colors.dart';
 import 'package:avia_app/core/constants/constants.dart';
-import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc.dart';
-import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_state.dart';
+import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc/homepage_bloc.dart';
+import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc/homepage_state.dart';
 import 'package:avia_app/features/1_home_page/presentation/widgets/music_ticket_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

@@ -1,7 +1,7 @@
 import 'package:avia_app/core/resources/data_state.dart';
 import 'package:avia_app/features/1_home_page/domain/usecases/get_music.dart';
-import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_event.dart';
-import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_state.dart';
+import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc/homepage_event.dart';
+import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc/homepage_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MusicTicketsBloc extends Bloc<MusicTicketsEvents, HomepageState> {
