@@ -15,13 +15,15 @@ class SearchTicketsRepoImpl implements SearchTicketRepository {
     try {
       final httpResponse = await _ticketsApiService.getSearchTickets();
       if (httpResponse.response.statusCode == HttpStatus.ok) {
-        return DataSuccess(httpResponse.data);
+        final List<SearchTicketEntity> tickets = httpResponse.data;
+        return DataSuccess(tickets);
       } else {
         return DataFailed(DioException(
-            requestOptions: httpResponse.response.requestOptions,
-            error: httpResponse.response.statusMessage,
-            response: httpResponse.response,
-            type: DioExceptionType.badResponse));
+          requestOptions: httpResponse.response.requestOptions,
+          error: httpResponse.response.statusMessage,
+          response: httpResponse.response,
+          type: DioExceptionType.badResponse,
+        ));
       }
     } on DioException catch (e) {
       return DataFailed(e);

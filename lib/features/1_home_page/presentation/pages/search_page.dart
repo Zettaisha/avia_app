@@ -1,7 +1,12 @@
 import 'package:avia_app/core/constants/constants.dart';
+import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc/homepage_state.dart';
+import 'package:avia_app/features/1_home_page/presentation/bloc/search_bloc/search_bloc.dart';
+import 'package:avia_app/features/1_home_page/presentation/bloc/search_bloc/search_state.dart';
 import 'package:avia_app/features/1_home_page/presentation/widgets/search_options.dart';
+import 'package:avia_app/features/1_home_page/presentation/widgets/search_ticket.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
@@ -55,180 +60,213 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: Column(
-        children: [
-          const SizedBox(height: 75),
-          Container(
-            width: 350,
-            height: 105,
-            decoration: BoxDecoration(
-              color: Colors.grey[800],
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+        backgroundColor: Colors.black,
+        body: BlocBuilder<SearchTicketsBloc, SearchTicketsState>(
+            builder: (_, state) {
+          if (state is SearchTicketsLoading) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          if (state is SearchTicketsError) {
+            return const Center(child: Icon(Icons.refresh));
+          }
+
+          if (state is SearchTicketsDone) {
+            return Column(
+              children: [
+                const SizedBox(height: 75),
+                Container(
+                  width: 350,
+                  height: 105,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[800],
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: Row(
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    fromCity,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.w600,
+                          IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          fromCity,
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    var temp = toCity;
-                                    toCity = fromCity;
-                                    fromCity = temp;
-                                  });
-                                },
-                                child: const Icon(
-                                  Icons.swap_vert,
-                                  color: Colors.white,
+                                    GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          var temp = toCity;
+                                          toCity = fromCity;
+                                          fromCity = temp;
+                                        });
+                                      },
+                                      child: const Icon(
+                                        Icons.swap_vert,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
                                 ),
-                              )
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          Container(
-                            height: 1,
-                            width: 320,
-                            color: Colors.grey[700],
-                          ),
-                          const SizedBox(height: 5),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    toCity,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.w600,
+                                const SizedBox(height: 10),
+                                Container(
+                                  height: 1,
+                                  width: 320,
+                                  color: Colors.grey[700],
+                                ),
+                                const SizedBox(height: 5),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          toCity,
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                              const ImageIcon(
-                                AssetImage(clearMarkIconImagePath),
-                                color: Colors.white,
-                              ),
-                            ],
+                                    const ImageIcon(
+                                      AssetImage(clearMarkIconImagePath),
+                                      color: Colors.white,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ],
-                      ),
-                    ),
-                  ],
-                )),
-          ),
-          const SizedBox(height: 15),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Row(
-              children: [
-                InkWell(
-                    child: SearchOptions(
-                        text: arrivalDate,
-                        imageIconPath: 'lib/assets/images/icons/plus_icon.png'),
-                    onTap: () async => await showBackDateCalendar(false)),
-                InkWell(
-                    child: SearchOptions(text: departureDate),
-                    onTap: () async => await showBackDateCalendar(true)),
-                const SearchOptions(
-                    text: '1, эконом',
-                    imageIconPath:
-                        'lib/assets/images/icons/passengers_icon.png')
-              ],
-            ),
-          ),
-          const SizedBox(height: 25),
-          Container(
-            width: 350,
-            height: 50,
-            decoration: BoxDecoration(
-                color: Colors.blue, borderRadius: BorderRadius.circular(8)),
-            child: const Center(
-              child: Text(
-                'Посмотреть все билеты',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16),
-              ),
-            ),
-          ),
-          const SizedBox(height: 25),
-          Container(
-            width: 350,
-            height: 60,
-            decoration: BoxDecoration(
-              color: Colors.grey[800],
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(12),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Row(
+                      )),
+                ),
+                const SizedBox(height: 15),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Row(
                     children: [
-                      ImageIcon(
-                        AssetImage(
-                            'lib/assets/images/icons/notifications_icon.png'),
-                        color: Colors.blue,
-                        size: 30,
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        'Подписка на цену',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                      ),
+                      InkWell(
+                          child: SearchOptions(
+                              text: arrivalDate,
+                              imageIconPath:
+                                  'lib/assets/images/icons/plus_icon.png'),
+                          onTap: () async => await showBackDateCalendar(false)),
+                      InkWell(
+                          child: SearchOptions(text: departureDate),
+                          onTap: () async => await showBackDateCalendar(true)),
+                      const SearchOptions(
+                          text: '1, эконом',
+                          imageIconPath:
+                              'lib/assets/images/icons/passengers_icon.png')
                     ],
                   ),
-                  Transform.scale(
-                    scaleX: 0.65,
-                    scaleY: 0.65,
-                    child: CupertinoSwitch(
-                        value: isChecked,
-                        activeColor: Colors.blue,
-                        onChanged: (bool value) {
-                          setState(() {
-                            isChecked = value;
-                          });
-                        }),
-                  )
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
-    );
+                ),
+                const SizedBox(height: 25),
+                Expanded(
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: state.searchTickets!.length,
+                    itemBuilder: (context, index) {
+                      var searchTicket = state.searchTickets![index];
+                      return SearchTicketCard(
+                        index: index,
+                        searchTicket: searchTicket,
+                      );
+                    },
+                  ),
+                ),
+                Container(
+                  width: 350,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(8)),
+                  child: const Center(
+                    child: Text(
+                      'Посмотреть все билеты',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 25),
+                Container(
+                  width: 350,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[800],
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Row(
+                          children: [
+                            ImageIcon(
+                              AssetImage(
+                                  'lib/assets/images/icons/notifications_icon.png'),
+                              color: Colors.blue,
+                              size: 30,
+                            ),
+                            SizedBox(width: 10),
+                            Text(
+                              'Подписка на цену',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 16),
+                            ),
+                          ],
+                        ),
+                        Transform.scale(
+                          scaleX: 0.65,
+                          scaleY: 0.65,
+                          child: CupertinoSwitch(
+                              value: isChecked,
+                              activeColor: Colors.blue,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  isChecked = value;
+                                });
+                              }),
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            );
+          }
+          return const SizedBox();
+        }));
   }
 }

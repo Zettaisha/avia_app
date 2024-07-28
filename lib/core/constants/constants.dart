@@ -1,6 +1,6 @@
 const String ticketsAPIBaseUrl = 'https://run.mocky.io/v3';
 const String musicTicketHeadline = '/6b4bbc62-678e-457f-8c71-f4c4d4992525';
-const String searchTicketsHeadline = '/9c893bce-26f8-4a4c-ba13-8b3c5c885df4';
+const String searchTicketsHeadline = '/8fbc94bc-7693-4b68-b96c-bc18fd06836a';
 
 const String bnbPlaneImagePath = 'lib/assets/images/icons/plane_bnb_icon.png';
 const String bnbHotelsImagePath = 'lib/assets/images/icons/hotels_bnb_icon.png';

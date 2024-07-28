@@ -6,6 +6,7 @@ import 'package:avia_app/features/1_home_page/domain/repository/ticket_repositor
 import 'package:avia_app/features/1_home_page/domain/usecases/get_music.dart';
 import 'package:avia_app/features/1_home_page/domain/usecases/get_search.dart';
 import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc/homepage_bloc.dart';
+import 'package:avia_app/features/1_home_page/presentation/bloc/search_bloc/search_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -22,8 +23,9 @@ Future<void> initializeDependencies() async {
 
   // use cases
   sl.registerSingleton<GetMusicTicketsUseCase>(GetMusicTicketsUseCase(sl()));
-  sl.registerSingleton<GetSeachTicketsUseCase>(GetSeachTicketsUseCase(sl()));
+  sl.registerSingleton<GetSearchTicketsUseCase>(GetSearchTicketsUseCase(sl()));
 
   // blocs
   sl.registerFactory<MusicTicketsBloc>(() => MusicTicketsBloc(sl()));
+  sl.registerFactory<SearchTicketsBloc>(() => SearchTicketsBloc(sl()));
 }

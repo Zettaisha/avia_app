@@ -6,11 +6,14 @@ class SearchTicketModel extends SearchTicketEntity {
       : super(id, title, timeRange, price);
 
   factory SearchTicketModel.fromJson(Map<String, dynamic> map) {
+    final timeRange = (map['time_range'] as List<dynamic>?)
+        ?.map((item) => item as String)
+        .toList();
     final price = map['price'];
     return SearchTicketModel(
       id: map['id'] ?? 0,
       title: map['title'] ?? '',
-      timeRange: map['time_range'] ?? [],
+      timeRange: timeRange ?? [],
       price: (price != null &&
               price is Map<String, dynamic> &&
               price['value'] != null)

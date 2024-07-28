@@ -57,7 +57,7 @@ class _TicketsApiService implements TicketsApiService {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<List<dynamic>>(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<HttpResponse<List<SearchTicketModel>>>(Options(
       method: 'GET',
       headers: _headers,
@@ -65,7 +65,7 @@ class _TicketsApiService implements TicketsApiService {
     )
             .compose(
               _dio.options,
-              '/9c893bce-26f8-4a4c-ba13-8b3c5c885df4',
+              '/8fbc94bc-7693-4b68-b96c-bc18fd06836a',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -74,10 +74,11 @@ class _TicketsApiService implements TicketsApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    var value = _result.data!
-        .map((dynamic i) =>
-            SearchTicketModel.fromJson(i as Map<String, dynamic>))
-        .toList();
+    List<SearchTicketModel> value =
+        (_result.data!['tickets_offers'] as List<dynamic>)
+            .map((dynamic i) =>
+                SearchTicketModel.fromJson(i as Map<String, dynamic>))
+            .toList();
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }
