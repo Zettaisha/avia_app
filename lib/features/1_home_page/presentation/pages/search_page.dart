@@ -1,3 +1,4 @@
+import 'package:avia_app/config/themes/colors.dart';
 import 'package:avia_app/core/constants/constants.dart';
 import 'package:avia_app/features/1_home_page/presentation/bloc/homepage_bloc/homepage_state.dart';
 import 'package:avia_app/features/1_home_page/presentation/bloc/search_bloc/search_bloc.dart';
@@ -189,19 +190,56 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                 ),
                 const SizedBox(height: 25),
-                Expanded(
-                  child: ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    itemCount: state.searchTickets!.length,
-                    itemBuilder: (context, index) {
-                      var searchTicket = state.searchTickets![index];
-                      return SearchTicketCard(
-                        index: index,
-                        searchTicket: searchTicket,
-                      );
-                    },
-                  ),
-                ),
+                Container(
+                    width: 350,
+                    height: 240,
+                    padding: const EdgeInsets.only(
+                        top: 16, left: 16, right: 16, bottom: 6),
+                    decoration: BoxDecoration(
+                        color: AppColors.grey2,
+                        borderRadius: BorderRadius.circular(16)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Прямые рейсы',
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white)),
+                        const SizedBox(height: 8),
+                        SearchTicketCard(
+                          index: 0,
+                          searchTicket: state.searchTickets![0],
+                        ),
+                        const SizedBox(height: 3),
+                        Container(
+                          height: 1,
+                          width: 320,
+                          color: Colors.grey[700],
+                        ),
+                        SearchTicketCard(
+                          index: 1,
+                          searchTicket: state.searchTickets![1],
+                        ),
+                        const SizedBox(height: 3),
+                        Container(
+                          height: 1,
+                          width: 320,
+                          color: Colors.grey[700],
+                        ),
+                        SearchTicketCard(
+                          index: 2,
+                          searchTicket: state.searchTickets![2],
+                        ),
+                        const SizedBox(height: 3),
+                        Container(
+                          height: 1,
+                          width: 320,
+                          color: Colors.grey[700],
+                        ),
+                      ],
+                    )),
+                const SizedBox(height: 29),
                 Container(
                   width: 350,
                   height: 50,

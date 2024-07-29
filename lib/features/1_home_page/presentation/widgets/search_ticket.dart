@@ -53,7 +53,9 @@ class SearchTicketCard extends StatelessWidget {
                     Text(
                       "${searchTicket.price!.toString()} ₽",
                       style: TextStyle(
-                          color: AppColors.blue, fontStyle: FontStyle.italic),
+                          color: AppColors.blue,
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w500),
                     ),
                     const SizedBox(width: 5),
                     Icon(
